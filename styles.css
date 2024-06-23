@@ -426,3 +426,7 @@
 .form-group.terms label a:hover {
     text-decoration: underline;
 }
+.qrInsta {
+    width: 140px;
+    height: 140px;
+}
