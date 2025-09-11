@@ -9,7 +9,7 @@ function Contact({ personalData }) {
     message: ''
   });
   const [loading, setLoading] = useState(false);
-  const [msg, setMsg] = useState(''); // success/error message
+  const [msg, setMsg] = useState('');  
 
   const handleChange = (e) => {
     setFormData({
@@ -23,7 +23,7 @@ function Contact({ personalData }) {
     setLoading(true);
     setMsg('');
     try {
-      const response = await fetch("http://localhost:5000/send", {
+      const response = await fetch("https://portfolio-yash-s5gk.onrender.com/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
