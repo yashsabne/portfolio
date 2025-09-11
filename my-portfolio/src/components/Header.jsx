@@ -12,9 +12,9 @@ function Header({
 
   return (
     <header className="fixed w-full bg-white/80 dark:bg-gray-950/80 backdrop-blur-md shadow-md z-50 transition-colors duration-300">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a
+      <div className="container mx-auto h-15 px-4 py-4 flex justify-center items-center relative">
+       
+        {/* <a
           href="#home"
           className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:opacity-90 transition"
           onClick={(e) => {
@@ -22,8 +22,8 @@ function Header({
             scrollToSection("home");
           }}
         >
-          AJ
-        </a>
+          PORTFOLIO
+        </a> */}
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
@@ -51,7 +51,7 @@ function Header({
         
  
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            className="absolute right-5 top-2  md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}

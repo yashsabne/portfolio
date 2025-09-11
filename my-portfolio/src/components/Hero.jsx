@@ -7,7 +7,7 @@ function Hero({ personalData }) {
     return (
         <section
             id="home"
-            className="pt-32 pb-20 px-4 min-h-screen flex items-center bg-gradient-to-b from-white dark:from-gray-950 to-transparent"
+            className="pt-32 pb-20 px-24 min-h-screen flex items-center bg-gradient-to-b from-white dark:from-gray-950 to-transparent"
         >
             <div className="container mx-auto flex flex-col md:flex-row items-center">
                 {/* Left Content */}
@@ -19,8 +19,8 @@ function Hero({ personalData }) {
                                 strings={[personalData.name]}
                                 typeSpeed={100}
                                 backSpeed={50}
-                                backDelay={1000}   
-                                loop={true}       
+                                backDelay={1000}
+                                loop={true}
                             />
                         </span>
                     </h1>
@@ -39,23 +39,23 @@ function Hero({ personalData }) {
                             user-friendly
                         </span>{" "}
                         software solutions for the web and beyond.
-                    </p> 
- <div className="flex space-x-4">
- 
-  <a
-    href="#projects"
-    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:shadow-xl"
-  >
-    View My Work
-  </a>
- 
-  <a
-    href="#contact"
-    className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-xl shadow-md transition duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg"
-  >
-     Contact Me
-  </a>
-</div>
+                    </p>
+                    <div className="flex space-x-4">
+
+                        <a
+                            href="#projects"
+                            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:shadow-xl"
+                        >
+                            View My Work
+                        </a>
+
+                        <a
+                            href="#contact"
+                            className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-xl shadow-md transition duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg"
+                        >
+                            Contact Me
+                        </a>
+                    </div>
 
                     <div className="mt-8 flex space-x-5">
                         {personalData.social.github && (
@@ -72,40 +72,34 @@ function Hero({ personalData }) {
                                 icon={<FaLinkedin size={24} />}
                             />
                         )}
-            
+
                     </div>
                 </div>
 
                 {/* Right Content - Profile */}
+
                 <div className="md:w-1/2 flex justify-center">
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl animate-fade-in">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-80"></div>
-                        <div className="relative w-full h-full flex items-center justify-center text-white">
-                            {personalData.image ? (
-                                <img
-                                    src={personalData.image}
-                                    alt={`${personalData.name} profile`}
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-24 w-24 opacity-80"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                    />
-                                </svg>
-                            )}
+                    <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl animate-fade-in">
+
+                        {/* Gradient background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-70"></div>
+
+                        {/* Image container */}
+                        <div className="relative w-full h-full flex items-center justify-center">
+                            <img
+                                src={personalData.image}
+                                alt={`${personalData.name} profile`}
+                                className="w-full h-full object-cover object-[center_30%]"
+                            />
                         </div>
+
+                        {/* Optional subtle border glow */}
+                        <div className="absolute inset-0 rounded-full border-4 border-blue-400/30 pointer-events-none"></div>
                     </div>
                 </div>
+
+
+
             </div>
         </section>
     );
