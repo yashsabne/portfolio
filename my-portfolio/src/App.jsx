@@ -28,14 +28,14 @@ export const achievementsData = [
     id: 1,
     title: "Technical Executive",
     organization: "Mindbend, SVNIT",
-    year: "2023 – Present",
+    year: "2023 – 2023",
     description: "Contributed to organizing and technically coordinating Gujarat’s largest techno-managerial fest with 10,000+ student participants."
   },
   {
     id: 2,
     title: "Google Winter of Code Contributor",
     organization: "NIT Surat",
-    year: "2024",
+    year: "2024-present",
     description: "Delivered a production-ready e-commerce project within strict deadlines, collaborating with mentors and peers."
   },
   {
@@ -166,7 +166,7 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300  bg-gray-950 text-white`}>
+    <div className={`min-h-screen   bg-gray-950 text-white`}>
       <Header   
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
