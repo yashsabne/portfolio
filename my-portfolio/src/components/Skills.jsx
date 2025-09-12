@@ -59,23 +59,32 @@ function Skills() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        setVisible(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 } // more forgiving
+  );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
 
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+    // 🔥 check immediately if already in view
+    if (window.innerHeight >= sectionRef.current.getBoundingClientRect().top) {
+      setVisible(true);
+      observer.disconnect();
+    }
+  }
+
+  return () => {
+    if (sectionRef.current) observer.unobserve(sectionRef.current);
+  };
+}, []);
+
 
   return (
     <section
