@@ -113,7 +113,7 @@ const projectsData = [
     description: "A comprehensive e-commerce platform developed during Google Winter of Code, featuring a user-friendly interface and robust backend.",
     technologies: ["React", "Node.js", "MongoDB", "Express"],
     image: "https://github.com/yashsabne/kashvi_GWOC_final/blob/main/products.png?raw=true",
-    liveUrl: "kashvi-online-store.vercel.app", 
+    liveUrl: "https://kashvi-online-store.vercel.app", 
     githubUrl: "https://github.com/yashsabne/kashvi_GWOC_final"
   },
   {

@@ -1,7 +1,14 @@
-import React from 'react';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 function Projects({ projectsData }) {
+  // Track which card is active on mobile
+  const [activeCard, setActiveCard] = useState(null);
+
+  const toggleCard = (id) => {
+    setActiveCard(activeCard === id ? null : id);
+  };
+
   return (
     <section id="projects" className="py-20 px-4 bg-gray-950">
       <div className="container mx-auto">
@@ -13,16 +20,21 @@ function Projects({ projectsData }) {
           {projectsData.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300   hover:shadow-2xl"
-            > 
+              className="bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl"
+              onClick={() => toggleCard(project.id)} // mobile toggle
+            >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                 />
+
                 {/* Overlay with links */}
-                <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                <div
+                  className={`absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center space-x-4 transition-opacity duration-300 
+                    ${activeCard === project.id ? "opacity-100" : "opacity-0 md:opacity-0 md:hover:opacity-100"}`}
+                >
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -30,6 +42,7 @@ function Projects({ projectsData }) {
                       rel="noopener noreferrer"
                       className="p-3 bg-gray-100 rounded-full text-gray-900 hover:bg-gray-200 transition-colors duration-300"
                       aria-label="Live Project"
+                      onClick={(e) => e.stopPropagation()} // prevent card toggle on link click
                     >
                       <FaExternalLinkAlt className="h-5 w-5" />
                     </a>
@@ -40,6 +53,7 @@ function Projects({ projectsData }) {
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-100 rounded-full text-gray-900 hover:bg-gray-200 transition-colors duration-300"
                     aria-label="Github Repository"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <FaGithub className="h-5 w-5" />
                   </a>
