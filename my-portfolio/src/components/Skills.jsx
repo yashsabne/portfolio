@@ -82,7 +82,7 @@ function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-20 px-6 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+      className="py-20 px-6 bg-gray-900 "
     >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 relative">
@@ -93,7 +93,7 @@ function Skills() {
           {Object.keys(categorizedSkills).map((category) => (
             <div
               key={category}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 overflow-y-auto max-h-80"
+              className="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-transform duration-300  overflow-y-auto max-h-80"
             >
               <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 text-center">
                 {category}

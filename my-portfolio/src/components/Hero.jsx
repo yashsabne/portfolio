@@ -7,7 +7,7 @@ function Hero({ personalData }) {
     return (
         <section
             id="home"
-            className="pt-32 pb-20 px-24 min-h-screen flex items-center bg-gradient-to-b from-white dark:from-gray-950 to-transparent"
+            className="pt-32 pb-20 px-24 min-h-screen flex items-center bg-gradient-to-b from-gray-950 to-gray-900"
         >
             <div className="container mx-auto flex flex-col md:flex-row items-center">
                 {/* Left Content */}

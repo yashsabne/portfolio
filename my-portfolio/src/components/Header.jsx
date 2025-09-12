@@ -11,7 +11,7 @@ function Header({
   const navLinks = ["home", "about", "achievements", "skills", "projects", "contact"];
 
   return (
-    <header className="fixed w-full bg-white/80 dark:bg-gray-950/80 backdrop-blur-md shadow-md z-50 transition-colors duration-300">
+    <header className="fixed w-full  bg-gray-950/80 backdrop-blur-md shadow-md z-50 t">
       <div className="container mx-auto h-15 px-4 py-4 flex justify-center items-center relative">
        
         {/* <a

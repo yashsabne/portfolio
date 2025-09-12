@@ -166,7 +166,7 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen   bg-gray-950 text-white`}>
+    <div className={`min-h-screen  bg-gray-950 text-white`}>
       <Header   
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}

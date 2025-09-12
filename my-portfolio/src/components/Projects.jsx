@@ -3,7 +3,7 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'; // Requires react-
 
 function Projects({ projectsData }) {
   return (
-    <section id="projects" className="py-20 px-4 transition-colors duration-300">
+    <section id="projects" className="py-20 px-4   ">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 relative">
           My Projects 
@@ -11,7 +11,7 @@ function Projects({ projectsData }) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map(project => (
-            <div key={project.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl">
+            <div key={project.id} className="bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300  hover:shadow-2xl">
               <div className="relative overflow-hidden">
                 <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
                 <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">

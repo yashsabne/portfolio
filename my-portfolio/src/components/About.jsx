@@ -5,7 +5,7 @@ function About({ personalData }) {
   return (
     <section
       id="about"
-      className="py-20 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+      className="py-20 px-4 bg-gray-900 "
     >
       <div className="container mx-auto max-w-3xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative">
