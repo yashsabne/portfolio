@@ -2,19 +2,18 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { ReactTyped } from "react-typed";
 
-
 function Hero({ personalData }) {
     return (
         <section
             id="home"
-            className="pt-32 pb-20 px-24 min-h-screen flex items-center bg-gradient-to-b from-gray-950 to-gray-900"
+            className="pt-32 pb-20 px-6 min-h-screen flex items-center bg-gradient-to-b from-gray-950 to-gray-900"
         >
             <div className="container mx-auto flex flex-col md:flex-row items-center">
                 {/* Left Content */}
                 <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-in-up">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
                         Hi, I'm{" "}
-                        <span className="text-blue-600 dark:text-blue-400">
+                        <span className="text-blue-400">
                             <ReactTyped
                                 strings={[personalData.name]}
                                 typeSpeed={100}
@@ -25,37 +24,38 @@ function Hero({ personalData }) {
                         </span>
                     </h1>
 
-                    <h2 className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6 font-medium">
+                    <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-medium">
                         {personalData.title}
                     </h2>
 
-                    <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg leading-relaxed">
+                    <p className="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
                         I craft{" "}
-                        <span className="font-semibold text-blue-600 dark:text-blue-400">
+                        <span className="font-semibold text-blue-400">
                             accessible, efficient
                         </span>{" "}
                         and{" "}
-                        <span className="font-semibold text-purple-600 dark:text-purple-400">
+                        <span className="font-semibold text-purple-400">
                             user-friendly
                         </span>{" "}
                         software solutions for the web and beyond.
                     </p>
-                    <div className="flex space-x-4">
 
+                    <div className="flex space-x-3 md:space-x-4">
                         <a
                             href="#projects"
-                            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:shadow-xl"
+                            className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg md:rounded-xl shadow-lg transform transition duration-300 hover:shadow-xl hover:scale-105"
                         >
                             View My Work
                         </a>
 
                         <a
                             href="#contact"
-                            className="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-xl shadow-md transition duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg"
+                            className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base border-2 border-blue-500 text-blue-400 font-semibold rounded-lg md:rounded-xl shadow-md transition duration-300 hover:bg-blue-600 hover:text-white hover:shadow-lg"
                         >
                             Contact Me
                         </a>
                     </div>
+
 
                     <div className="mt-8 flex space-x-5">
                         {personalData.social.github && (
@@ -72,19 +72,22 @@ function Hero({ personalData }) {
                                 icon={<FaLinkedin size={24} />}
                             />
                         )}
-
+                        {personalData.social.twitter && (
+                            <SocialLink
+                                href={personalData.social.twitter}
+                                label="Twitter"
+                                icon={<FaTwitter size={24} />}
+                            />
+                        )}
                     </div>
                 </div>
 
                 {/* Right Content - Profile */}
-
                 <div className="md:w-1/2 flex justify-center">
                     <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl animate-fade-in">
-
-                        {/* Gradient background */}
+                        {/* Gradient overlay */}
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-70"></div>
 
-                        {/* Image container */}
                         <div className="relative w-full h-full flex items-center justify-center">
                             <img
                                 src={personalData.image}
@@ -93,13 +96,9 @@ function Hero({ personalData }) {
                             />
                         </div>
 
-                        {/* Optional subtle border glow */}
                         <div className="absolute inset-0 rounded-full border-4 border-blue-400/30 pointer-events-none"></div>
                     </div>
                 </div>
-
-
-
             </div>
         </section>
     );
@@ -112,7 +111,7 @@ const SocialLink = ({ href, label, icon }) => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+        className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
     >
         {icon}
     </a>

@@ -55,7 +55,6 @@ const categorizedSkills = {
   ]
 };
 
-
 function Skills() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -82,34 +81,34 @@ function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-20 px-6 bg-gray-900 "
+      className="py-20 px-6 bg-gray-950 text-white transition-colors duration-300"
     >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 relative">
-          My Skills 
+          My Skills
         </h2>
- 
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {Object.keys(categorizedSkills).map((category) => (
             <div
               key={category}
-              className="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-transform duration-300  overflow-y-auto max-h-80"
+              className="bg-gray-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 overflow-y-auto max-h-80"
             >
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 text-center">
+              <h3 className="text-xl font-semibold mb-4 text-gray-100 text-center">
                 {category}
               </h3>
               <div className="space-y-4">
                 {categorizedSkills[category].map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">
+                      <span className="font-medium text-gray-200">
                         {skill.name}
                       </span>
-                      <span className="text-blue-600 dark:text-blue-400 font-bold">
+                      <span className="text-blue-400 font-bold">
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                       <div
                         className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-[2000ms] ease-out"
                         style={{ width: visible ? `${skill.level}%` : "0%" }}

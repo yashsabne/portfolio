@@ -1,31 +1,12 @@
 import React from "react";
 
-function Header({
-  darkMode,
-  toggleDarkMode,
-  menuOpen,
-  toggleMenu,
-  activeSection,
-  scrollToSection,
-}) {
+function Header({ menuOpen, toggleMenu, activeSection, scrollToSection }) {
   const navLinks = ["home", "about", "achievements", "skills", "projects", "contact"];
 
   return (
-    <header className="fixed w-full  bg-gray-950/80 backdrop-blur-md shadow-md z-50 t">
-      <div className="container mx-auto h-15 px-4 py-4 flex justify-center items-center relative">
-       
-        {/* <a
-          href="#home"
-          className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:opacity-90 transition"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("home");
-          }}
-        >
-          PORTFOLIO
-        </a> */}
-
-        {/* Desktop Navigation */}
+    <header className="fixed w-full bg-gray-950/90 backdrop-blur-md shadow-md z-50">
+      <div className="container mx-auto h-16 px-4 py-4 flex justify-center items-center relative">
+        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((section) => (
             <a
@@ -34,8 +15,8 @@ function Header({
               aria-current={activeSection === section ? "page" : undefined}
               className={`capitalize font-medium tracking-wide transition-colors duration-300 ${
                 activeSection === section
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  ? "text-blue-400"
+                  : "text-gray-300 hover:text-blue-400"
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -46,12 +27,11 @@ function Header({
             </a>
           ))}
         </nav>
- 
+
+        {/* Mobile Menu Button */}
         <div className="flex items-center space-x-3">
-        
- 
           <button
-            className="absolute right-5 top-2  md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            className="absolute right-5 top-2 md:hidden p-2 rounded-md hover:bg-gray-800 transition-colors duration-300"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
@@ -60,9 +40,10 @@ function Header({
           </button>
         </div>
       </div>
- 
+
+      {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg transition-all duration-300">
+        <div className="md:hidden bg-gray-900 shadow-lg transition-all duration-300">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
             {navLinks.map((section) => (
               <a
@@ -70,8 +51,8 @@ function Header({
                 href={`#${section}`}
                 className={`py-2 px-2 rounded-md capitalize font-medium transition-colors duration-300 ${
                   activeSection === section
-                    ? "text-blue-600 dark:text-blue-400 bg-gray-100 dark:bg-gray-800"
-                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    ? "text-blue-400 bg-gray-800"
+                    : "text-gray-300 hover:text-blue-400"
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -89,12 +70,10 @@ function Header({
   );
 }
 
- 
-
 const MenuIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6 text-gray-700 dark:text-gray-300"
+    className="h-6 w-6 text-gray-300"
     fill="currentColor"
     viewBox="0 0 20 20"
   >

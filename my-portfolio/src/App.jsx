@@ -176,9 +176,10 @@ function App() {
       
       <main>
         <Hero personalData={personalData} />
-        <About personalData={personalData} />
         
         <Achievements achievementsData={achievementsData} educationData={educationData} />
+        <About personalData={personalData} />
+        
         <Skills />
         <Projects projectsData={projectsData} />
         <Contact personalData={personalData} />
