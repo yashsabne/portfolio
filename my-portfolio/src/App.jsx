@@ -12,10 +12,10 @@ import { Analytics } from "@vercel/analytics/react";
 const personalData = {
   name: "Yash Sabne",
   title: "Passionate Software Developer",
-  about: "I am a 3rd-year Electronics and Communication Engineering student in my 5th semester. I enjoy building projects using the MERN stack, exploring new technologies, and solving challenging problems. I am constantly learning and passionate about creating efficient and user-friendly software.",
+  about: "I am a 3rd-year Electronics and Communication Engineering student in my 6th semester. I enjoy building projects using the MERN stack, exploring new technologies, and solving challenging problems. I am constantly learning and passionate about creating efficient and user-friendly software.",
   email: "yashsabne39@gmail.com",
   image:"https://github.com/yashsabne/portfolio/blob/main/Gemini_Generated_Image_5gy6ch5gy6ch5gy6.png?raw=true",
-  phone: "+91 7276462261",
+  phone: "+91 72764 62261",
   location: "Surat, India",
   social: {
     github: "https://github.com/yashsabne",
@@ -50,7 +50,7 @@ export const achievementsData = [
     title: "Competitive Programming",
     organization: "LeetCode & Codeforces",
     year: "2024 – Present",
-    description: "Solved 320+ Data Structures & Algorithms problems to strengthen algorithmic thinking and problem-solving skills."
+    description: "Solved 360+ Data Structures & Algorithms problems to strengthen algorithmic thinking and problem-solving skills."
   },
 ];
 
@@ -60,7 +60,7 @@ export const educationData = [
     degree: "B.Tech in Electronics and Communication Engineering",
     institution: "S.V. National Institute of Technology, Surat",
     year: "July 2023 – May 2027",
-    description: "Currently in 3rd year, 5th semester. Learning software development, data structures, algorithms, and web technologies."
+    description: "Currently in 3rd year, 6th semester. Learning software development, data structures, algorithms, and web technologies."
   },
   {
     id: 2,
@@ -84,7 +84,7 @@ const projectsData = [
     id: 1,
     title: "RentSmart",
     description: "A MERN-stack web application streamlining property rentals and sales with features like real-time chat, secure payments, and a sleek dark theme.",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.IO"],
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
     image: "https://github.com/yashsabne/rentSmart/blob/main/Screenshot%202025-09-11%20171906.png?raw=true",
     liveUrl: "https://rent-smart.vercel.app",
     githubUrl: "https://github.com/yashsabne/rentSmart"
@@ -93,7 +93,7 @@ const projectsData = [
     id: 2,
     title: "LendLink",
     description: "A secure platform for creating and managing groups, enabling seamless money rotation with advanced and real-time updates.",
-    technologies: ["React", "Node.js", "Express", "Socket.IO"],
+    technologies: ["React", "Node.js", "Express", "Socket.IO","SEO Engineered" ],
     image: "https://github.com/yashsabne/LendLink/blob/main/Screenshot%202025-01-19%20185520.png?raw=true",
     liveUrl: "https://lend-link-six.vercel.app",
     githubUrl: "https://github.com/yashsabne/LendLink"
@@ -167,6 +167,7 @@ function App() {
 
   return (
     <div className={`min-h-screen  bg-gray-950 text-white`}>
+      
       <Header   
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
