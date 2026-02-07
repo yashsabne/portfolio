@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 function Projects({ projectsData }) {
-  // Track which card is active on mobile
+  
   const [activeCard, setActiveCard] = useState(null);
 
   const toggleCard = (id) => {
@@ -147,9 +147,8 @@ function Projects({ projectsData }) {
                       </span>
                     ))}
                   </div>
-
-                  {/* CTA */}
-                  {/* <div className="flex gap-4">
+ 
+                  <div className="flex gap-4">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -180,7 +179,7 @@ function Projects({ projectsData }) {
                   >
                     GitHub
                   </a>
-                </div> */}
+                </div>
                 </div>
               </div>
             )
