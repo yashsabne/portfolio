@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 const personalData = {
   name: "Yash Sabne",
   title: "Passionate Software Developer",
-  about: "I am a 3rd-year Electronics and Communication Engineering student in my 6th semester. I enjoy building projects using the MERN stack, exploring new technologies, and solving challenging problems. I am constantly learning and passionate about creating efficient and user-friendly software.",
+  about: "I am a 4rd-year Electronics and Communication Engineering student in my 7th semester. I enjoy building projects using the MERN stack, exploring new technologies, and solving challenging problems. I am constantly learning and passionate about creating efficient and user-friendly software.",
   email: "yashsabne39@gmail.com",
   image:"https://github.com/yashsabne/portfolio/blob/main/Gemini_Generated_Image_5gy6ch5gy6ch5gy6.png?raw=true",
   phone: "+91 72764 62261",
@@ -80,15 +80,15 @@ export const educationData = [
 
 
 const projectsData = [
-  {
-    id: 1,
-    title: "RentSmart",
-    description: "A MERN-stack web application streamlining property rentals and sales with features like real-time chat, secure payments, and a sleek dark theme.",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-    image: "https://github.com/yashsabne/rentSmart/blob/main/Screenshot%202025-09-11%20171906.png?raw=true",
-    liveUrl: "https://rent-smart.vercel.app",
-    githubUrl: "https://github.com/yashsabne/rentSmart"
-  },
+{
+  id: 1,
+  title: "RentSmart v2",
+  description: "A production-ready property rental marketplace built on 6 independently deployable microservices.+ Features real-time Socket.IO chat with delivery tracking, Razorpay payment gating, Redis rate limiting, Cloudinary image uploads, JWT auth with email verification, and Docker Compose orchestration & load tested at 500 concurrent users with 99.02% uptime.",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "Redis", "Socket.IO", "Docker", "Razorpay", "Cloudinary"],
+  image: "https://github.com/yashsabne/rentsmart_v2/blob/main/showcase/home.png?raw=true",
+  liveUrl: "https://rentsmart.fun",
+  githubUrl: "https://github.com/yashsabne/rentsmart_v2"
+},
   {
     id: 2,
     title: "LendLink",
@@ -98,17 +98,8 @@ const projectsData = [
     liveUrl: "https://lend-link-six.vercel.app",
     githubUrl: "https://github.com/yashsabne/LendLink"
   },
-  {
+    {
     id: 3,
-    title: "StratEngine",
-    description: "A strategic game engine combining frontend and backend technologies with a Python-based engine for dynamic gameplay.",
-    technologies: ["React", "Node.js", "Python","Flask", "JavaScript"],
-    image: "https://github.com/yashsabne/stratEngine/blob/main/Screenshot%202025-05-24%20153435.png?raw=true",
-    liveUrl: "https://strat-engine.vercel.app",
-    githubUrl: "https://github.com/yashsabne/stratEngine"
-  },
-  {
-    id: 4,
     title: "Kashvi (GWOC Final)",
     description: "A comprehensive e-commerce platform developed during Google Winter of Code, featuring a user-friendly interface and robust backend.",
     technologies: ["React", "Node.js", "MongoDB", "Express"],
@@ -116,6 +107,16 @@ const projectsData = [
     liveUrl: "https://kashvi-online-store.vercel.app", 
     githubUrl: "https://github.com/yashsabne/kashvi_GWOC_final"
   },
+  {
+    id: 4,
+    title: "StratEngine",
+    description: "A strategic game engine combining frontend and backend technologies with a Python-based engine for dynamic gameplay.",
+    technologies: ["React", "Node.js", "Python","Flask", "JavaScript"],
+    image: "https://github.com/yashsabne/stratEngine/blob/main/Screenshot%202025-05-24%20153435.png?raw=true",
+    liveUrl: "https://strat-engine.vercel.app",
+    githubUrl: "https://github.com/yashsabne/stratEngine"
+  },
+
   {
     id: 5,
     title: "Bank Management System",

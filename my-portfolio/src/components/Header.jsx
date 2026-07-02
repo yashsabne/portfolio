@@ -27,8 +27,7 @@ function Header({ menuOpen, toggleMenu, activeSection, scrollToSection }) {
             </a>
           ))}
         </nav>
-
-        {/* Mobile Menu Button */}
+ 
         <div className="flex items-center space-x-3">
           <button
             className="absolute right-5 top-2 md:hidden p-2 rounded-md hover:bg-gray-800 transition-colors duration-300"
