@@ -33,7 +33,7 @@ app.post("/send", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
-      to: process.env.BREVO_EMAIL, // your email to receive messages 
+      to: process.env.BREVO_EMAIL,  
       text: message,
       html: `<p><strong>Name:</strong> ${name}</p>
              <p><strong>Email:</strong> ${email}</p>
