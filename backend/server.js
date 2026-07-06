@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
  
 const SENDER_EMAIL = process.env.SENDER_EMAIL || "noreply@rentsmart.fun";
-const SENDER_NAME = process.env.SENDER_NAME || "RentSmart";
+const SENDER_NAME = process.env.SENDER_NAME || "Yash sabne";
  
 const OWNER_EMAIL = process.env.OWNER_EMAIL;
 
