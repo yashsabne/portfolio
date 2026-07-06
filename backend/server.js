@@ -8,7 +8,15 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [ 
+      "https://yashsabne.is-a.dev",
+      "https://welcome-to-portfolio.vercel.app",
+    ],
+  })
+);
+
 app.use(bodyParser.json());
 
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
