@@ -60,7 +60,7 @@ export const educationData = [
     degree: "B.Tech in Electronics and Communication Engineering",
     institution: "S.V. National Institute of Technology, Surat",
     year: "July 2023 – May 2027",
-    description: "Currently in 3rd year, 6th semester. Learning software development, data structures, algorithms, and web technologies."
+    description: "Currently in 4rd year, 7th semester. Learning software development, data structures, algorithms, and web technologies."
   },
   {
     id: 2,
