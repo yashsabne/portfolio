@@ -68,7 +68,7 @@ app.post("/send", async (req, res) => {
           <p><strong>Your message:</strong></p>
           <p>${message}</p>
           <br/>
-          <p>— The RentSmart Team</p>
+          <p>- Yash Sabne</p>
         `,
       },
       { headers: brevoHeaders() }
