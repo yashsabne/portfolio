@@ -14,7 +14,7 @@ const personalData = {
   title: "Passionate Software Developer",
   about: "I am a 4rd-year Electronics and Communication Engineering student in my 7th semester. I enjoy building projects using the MERN stack, exploring new technologies, and solving challenging problems. I am constantly learning and passionate about creating efficient and user-friendly software.",
   email: "yashsabne39@gmail.com",
-  image:"https://github.com/yashsabne/portfolio/blob/main/Gemini_Generated_Image_5gy6ch5gy6ch5gy6.png?raw=true",
+  image:"https://github.com/yashsabne/portfolio/blob/main/Screenshot%202025-09-11%20192332.png?raw=true",
   phone: "+91 72764 62261",
   location: "Surat, India",
   social: {
