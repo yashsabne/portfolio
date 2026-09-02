@@ -83,8 +83,8 @@ const projectsData = [
 {
   id: 1,
   title: "RentSmart v2",
-  description: "A production-ready property rental marketplace built on 6 independently deployable microservices.+ Features real-time Socket.IO chat with delivery tracking, Razorpay payment gating, Redis rate limiting, Cloudinary image uploads, JWT auth with email verification, and Docker Compose orchestration & load tested at 500 concurrent users with 99.02% uptime.",
-  technologies: ["React", "Node.js", "Express", "MongoDB", "Redis", "Socket.IO", "Docker", "Razorpay", "Cloudinary"],
+  description: "A production-ready real estate platform re-architected into a 7-service microservices architecture. Features JWT authentication, Google OAuth, Redis caching and token blacklisting, MongoDB Atlas Search, personalized property recommendations, a RAG-based AI chatbot, and real-time Socket.IO messaging with online presence, typing indicators, delivery confirmations, and read receipts. Deployed with GitHub Actions CI/CD and Docker, and load tested at 500 concurrent VUs, processing 41K+ requests with a 99.63% success rate.",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "Redis", "Socket.IO", "Docker", "RAG", "GitHub Actions"],
   image: "https://github.com/yashsabne/rentsmart_v2/blob/main/showcase/home.png?raw=true",
   liveUrl: "https://rentsmart.fun",
   githubUrl: "https://github.com/yashsabne/rentsmart_v2"
