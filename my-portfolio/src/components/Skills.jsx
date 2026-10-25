@@ -6,12 +6,7 @@ function Skills() {
   const canvasRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
-  const categories = useMemo(() => Object.keys(categorizedSkills), []);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [ringsFilled, setRingsFilled] = useState(false);
-
-  const activeCategory = categories[activeIndex];
-  const activeSkills = categorizedSkills[activeCategory];
+  const categories = useMemo(() => Object.entries(categorizedSkills), []);
 
   // Reveal on scroll into view
   useEffect(() => {
@@ -114,15 +109,6 @@ function Skills() {
     };
   }, []);
 
-  // Animate proficiency rings whenever the active category changes
-  useEffect(() => {
-    setRingsFilled(false);
-    const t = requestAnimationFrame(() => {
-      setTimeout(() => setRingsFilled(true), 30);
-    });
-    return () => cancelAnimationFrame(t);
-  }, [activeIndex]);
-
   return (
     <section
       id="skills"
@@ -145,128 +131,124 @@ function Skills() {
       <div className="absolute top-1/4 left-1/4 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000" />
 
-      <div
-        className={`container mx-auto relative z-10 transition-all duration-700 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-        }`}
-      >
+      <div className="container mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12">
+        <div
+          className={`text-center mb-12 sm:mb-14 transition-all duration-700 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <div className="inline-block relative">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-100">
               Skills
               <span className="block text-xs sm:text-sm font-normal text-blue-400 mt-2 tracking-wide font-mono">
-                // technologies & proficiencies
+                // technologies & tools I work with
               </span>
             </h2>
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Category tabs */}
-          <div className="flex gap-2 overflow-x-auto pb-3 mb-10 scrollbar-hide">
-            {categories.map((category, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <button
-                  key={category}
-                  onClick={() => setActiveIndex(index)}
-                  className={`
-                    shrink-0 px-4 py-2 rounded-full font-mono text-xs sm:text-sm
-                    border transition-all duration-300 whitespace-nowrap
-                    ${
-                      isActive
-                        ? "bg-blue-500/10 border-blue-400/60 text-blue-300 shadow-[0_0_20px_rgba(59,130,246,0.15)]"
-                        : "bg-transparent border-gray-800 text-gray-400 hover:border-gray-600 hover:text-gray-200"
-                    }
-                  `}
-                >
-                  <span className="text-gray-600 mr-1">{(index + 1).toString().padStart(2, "0")}</span>
-                  {category.toLowerCase()}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Skill rings grid */}
-          <div
-            key={activeCategory}
-            className="
-              grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4
-              gap-4 sm:gap-5
-            "
-          >
-            {activeSkills.map((skill, index) => (
-              <SkillCard
-                key={skill.name}
-                skill={skill}
-                filled={ringsFilled}
-                delay={index * 60}
-              />
-            ))}
-          </div>
+        {/* Bento grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {categories.map(([title, skills], index) => (
+            <CategoryCard
+              key={title}
+              index={index}
+              title={title}
+              skills={skills}
+              visible={visible}
+              wide={index === 1 || index === 2}
+              full={index === categories.length - 1}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function SkillCard({ skill, filled, delay }) {
-  const radius = 16;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (filled ? skill.level : 0) / 100 * circumference;
+function CategoryCard({ index, title, skills, visible, wide, full }) {
+  const cardRef = useRef(null);
+
+  // Cursor-following spotlight
+  const handleMouseMove = (e) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
+  const spanClass = full
+    ? "lg:col-span-3 md:col-span-2"
+    : wide
+    ? "lg:col-span-2"
+    : "";
 
   return (
     <div
-      className="
-        relative group/skill p-4 rounded-xl
-        bg-gray-900/50 border border-gray-800/60
-        hover:border-blue-500/30 hover:bg-gray-900/80
-        transition-all duration-300
-        flex flex-col items-center text-center gap-3
-      "
-      style={{ transitionDelay: `${delay}ms` }}
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      className={`
+        group/card relative overflow-hidden rounded-2xl
+        bg-gray-900/50 border border-gray-800/70
+        hover:border-blue-500/30
+        p-5 sm:p-6
+        transition-all duration-700 ${spanClass}
+        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+      `}
+      style={{ transitionDelay: visible ? `${index * 90}ms` : "0ms" }}
     >
-      <div className="relative w-16 h-16 sm:w-[72px] sm:h-[72px]">
-        <svg viewBox="0 0 40 40" className="w-full h-full -rotate-90">
-          <circle
-            cx="20"
-            cy="20"
-            r={radius}
-            fill="none"
-            stroke="rgba(255,255,255,0.08)"
-            strokeWidth="3"
-          />
-          <circle
-            cx="20"
-            cy="20"
-            r={radius}
-            fill="none"
-            stroke="url(#ringGradient)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeDasharray={circumference}
-            strokeDashoffset={offset}
-            style={{ transition: `stroke-dashoffset 900ms ease-out ${delay}ms` }}
-          />
-          <defs>
-            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#60a5fa" />
-              <stop offset="100%" stopColor="#c084fc" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-mono text-[11px] sm:text-xs text-gray-300 group-hover/skill:text-white transition-colors">
-            {skill.level}
+      {/* Spotlight */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(96,165,250,0.12), rgba(192,132,252,0.06) 40%, transparent 70%)",
+        }}
+      />
+
+      {/* Top accent line */}
+      <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-blue-400/0 to-transparent group-hover/card:via-blue-400/60 transition-all duration-500" />
+
+      <div className="relative">
+        {/* Card header */}
+        <div className="flex items-start justify-between mb-5">
+          <div>
+            <span className="font-mono text-xs text-purple-400/80">
+              {(index + 1).toString().padStart(2, "0")}
+            </span>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-100 mt-1">
+              {title}
+            </h3>
+          </div>
+          <span className="font-mono text-[11px] text-gray-500 border border-gray-800 rounded-full px-2.5 py-1">
+            {skills.length}
           </span>
         </div>
-      </div>
 
-      <span className="text-sm sm:text-[15px] font-medium text-gray-300 group-hover/skill:text-white transition-colors duration-200">
-        {skill.name}
-      </span>
+        {/* Skills */}
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span
+              key={skill.name}
+              className="
+                group/chip inline-flex items-center gap-2
+                px-3 py-1.5 rounded-lg
+                bg-gray-950/60 border border-gray-800
+                text-[13px] sm:text-sm text-gray-400
+                hover:text-white hover:border-blue-400/50
+                hover:bg-blue-500/10
+                transition-all duration-200 cursor-default
+              "
+            >
+              <span className="w-1 h-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 group-hover/chip:scale-150 transition-transform duration-200" />
+              {skill.name}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

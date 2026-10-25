@@ -26,33 +26,41 @@ const personalData = {
 export const achievementsData = [
   {
     id: 1,
-    title: "Technical Executive",
-    organization: "Mindbend, SVNIT",
-    year: "2023 – 2023",
-    description: "Contributed to organizing and technically coordinating Gujarat’s largest techno-managerial fest with 10,000+ student participants."
+    title: "Technical Executive, Mindbend",
+    organization: "SVNIT",
+    description:
+      "Organized and coordinated Gujarat's largest techno-managerial fest with 10,000+ participants.",
   },
   {
     id: 2,
-    title: "Google Winter of Code Contributor",
-    organization: "NIT Surat",
-    year: "2024-present",
-    description: "Delivered a production-ready e-commerce project within strict deadlines, collaborating with mentors and peers."
+    title: "400+ LeetCode Problems",
+    organization: "LeetCode",
+    description:
+      "Solved 400+ problems across Java, MySQL and JavaScript, building strong problem-solving and DSA skills.",
   },
   {
     id: 3,
-    title: "MERN Full-Stack Projects",
-    organization: "Personal Projects",
-    year: "2024 – Present",
-    description: "Launched multiple full-stack MERN applications with authentication, payments, and real-time chat features."
+    title: "GWOC",
+    organization: "SVNIT",
+    description:
+      "Built a full e-commerce application within a 12-day deadline in a college-organized competition.",
   },
   {
     id: 4,
-    title: "Competitive Programming",
-    organization: "LeetCode & Codeforces",
-    year: "2024 – Present",
-    description: "Solved 360+ Data Structures & Algorithms problems to strengthen algorithmic thinking and problem-solving skills."
+    title: "Database Management Systems",
+    organization: "NPTEL · IIT Kharagpur",
+    description: "Completed the DBMS course offered by IIT Kharagpur.",
+  },
+  {
+    id: 5,
+    title: "YOLO & Pull Shark Badges",
+    organization: "GitHub",
+    description:
+      "Earned for consistent development activity and contributions across multiple software projects.",
   },
 ];
+
+ 
 
 export const educationData = [
   {
@@ -115,15 +123,6 @@ const projectsData = [
     image: "https://github.com/yashsabne/stratEngine/blob/main/Screenshot%202025-05-24%20153435.png?raw=true",
     liveUrl: "https://strat-engine.vercel.app",
     githubUrl: "https://github.com/yashsabne/stratEngine"
-  },
-
-  {
-    id: 5,
-    title: "Bank Management System",
-    description: "A Java-based project simulating a bank's operations, including account management and transaction processing.",
-    technologies: ["Java", "Collections", "OOP"],
-    image: "https://mybusinesscreator.com/wp-content/uploads/2025/05/Why-are-online-loans-more-popular-than-traditional-banking-options-now.jpg",
-    githubUrl: "https://github.com/yashsabne/java_project_Bank"
   }
 ];
   
